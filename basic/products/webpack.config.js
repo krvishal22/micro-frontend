@@ -12,7 +12,11 @@ module.exports = {
       exposes: {
         './ProductsIndex': './src/index',
       },
-      shared: ['faker'],
+      shared: {
+        faker: {
+          singleton: true,
+        }
+      },
     }),
 
     // take out all .js file coming out from webpack and add it to html inex.html file
