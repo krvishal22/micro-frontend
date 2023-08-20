@@ -5,7 +5,7 @@ merge fn allows us to take all the config that we wrote out in common file and m
 it together with a configuration that we are about to write inside this development file
 */
 const commonConfig = require("./webpack.common");
-
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const devConfig = {
@@ -19,6 +19,12 @@ const devConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new ModuleFederationPlugin({
+      name: "container",
+      remotes: {
+        marketing: "marketing@http://localhost:8081/remoteEntry.js",
+      },
     }),
   ],
 };
