@@ -19,7 +19,7 @@ module.exports = {
       },
     }),
 
-    // take out all .js file coming out from webpack and add it to html inex.html file
+    // take out all .js file coming out from webpack and add it to html index.html file
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
